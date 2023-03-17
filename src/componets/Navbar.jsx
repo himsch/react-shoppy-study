@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { FiShoppingBag } from 'react-icons/fi';
 import { BsFillPenFill } from 'react-icons/all.js';
+import { login } from '../api/firebase.js';
 
 function Navbar(props) {
   return (
@@ -16,7 +17,7 @@ function Navbar(props) {
         <Link to="/products/new" className="text-2xl">
           <BsFillPenFill />
         </Link>
-        <button>Login</button>
+        <button onClick={login}>Login</button>
       </nav>
     </header>
   );
