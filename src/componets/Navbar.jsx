@@ -2,16 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FiShoppingBag } from 'react-icons/fi';
 import { BsFillPenFill } from 'react-icons/all.js';
-import { login, logout, onUserStateChange } from '../api/firebase.js';
 import User from './User.jsx';
 import Button from './ui/Button.jsx';
+import { useAuthContext } from './context/AuthContext.jsx';
 
 function Navbar(props) {
-  const [user, setUser] = useState(null);
-
-  useEffect(() => {
-    onUserStateChange(setUser);
-  }, []);
+  const { user, login, logout } = useAuthContext();
 
   return (
     <header className="flex justify-between border-b border-gray-300 p-2">
@@ -21,7 +17,7 @@ function Navbar(props) {
       </Link>
       <nav className="flex items-center gap-4 font-semibold">
         <Link to="/products">Products</Link>
-        <Link to="/Carts">Carts</Link>
+        {user && <Link to="/Carts">Carts</Link>}
         {user && user.isAdmin && (
           <Link to="/products/new" className="text-2xl">
             <BsFillPenFill />
