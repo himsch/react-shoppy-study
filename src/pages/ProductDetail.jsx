@@ -18,6 +18,7 @@ function ProductDetail() {
       id,
       image,
       title,
+      price,
       option: selected,
       quantity: 1,
     };
