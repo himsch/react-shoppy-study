@@ -1,12 +1,13 @@
 import React from 'react';
 import Products from '../componets/Products.jsx';
+import Banner from '../componets/Banner.jsx';
 
 function Home() {
   return (
-    <div>
-      <div>banner</div>
+    <>
+      <Banner />
       <Products />
-    </div>
+    </>
   );
 }
 
