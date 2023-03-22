@@ -1,7 +1,8 @@
 import React from 'react';
+import Products from '../componets/Products.jsx';
 
-function AllProducts(props) {
-  return <div>AllProducts</div>;
+function AllProducts() {
+  return <Products />;
 }
 
 export default AllProducts;
