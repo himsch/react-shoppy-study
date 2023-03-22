@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import Button from '../componets/ui/Button.jsx';
+import { uploadImage } from '../api/uploader.js';
+import { addNewProduct } from '../api/firebase.js';
 
 function NewProduct(props) {
   const [product, setProduct] = useState({});
@@ -8,7 +10,11 @@ function NewProduct(props) {
   const handleSubmit = e => {
     e.preventDefault();
     // 제품의 사진을 Cloudinary에 업로드 하고 URL를 획득한다.
-    // Firebase에 새로운 제품을 추가한다.
+    uploadImage(file).then(url => {
+      console.log(url);
+      // Firebase에 새로운 제품을 추가한다.
+      addNewProduct(product, url);
+    });
   };
   const handleChange = e => {
     const { name, value, files } = e.target;
@@ -22,7 +28,10 @@ function NewProduct(props) {
   return (
     <section>
       {file && <img src={URL.createObjectURL(file)} alt="local file" />}
-      <form onSubmit={handleSubmit}>
+      <form
+        className="flex justify-center items-center flex-col"
+        onSubmit={handleSubmit}
+      >
         <h1>새로운 제품 입력</h1>
         <input
           type="file"
