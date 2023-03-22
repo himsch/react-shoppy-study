@@ -9,8 +9,8 @@ function App() {
   return (
     <>
       <AuthContextProvider>
-        <Navbar />
         <QueryClientProvider client={queryClient}>
+          <Navbar />
           <Outlet />
         </QueryClientProvider>
       </AuthContextProvider>
