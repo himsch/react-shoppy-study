@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FiShoppingBag } from 'react-icons/fi';
 import { BsFillPenFill } from 'react-icons/all.js';
@@ -6,7 +5,7 @@ import User from './User.jsx';
 import Button from './ui/Button.jsx';
 import { useAuthContext } from './context/AuthContext.jsx';
 
-function Navbar(props) {
+function Navbar() {
   const { user, login, logout } = useAuthContext();
 
   return (
