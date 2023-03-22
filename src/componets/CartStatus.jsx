@@ -7,6 +7,7 @@ import { useAuthContext } from '../context/AuthContext.jsx';
 function CartStatus() {
   const { uid } = useAuthContext();
   const { data: products } = useQuery(['carts'], async () => getCart(uid));
+
   return (
     <div className="relative">
       <AiOutlineShoppingCart className="text-4xl" />
