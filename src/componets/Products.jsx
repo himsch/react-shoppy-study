@@ -8,7 +8,7 @@ function Products() {
     isLoading,
     error,
     data: products,
-  } = useQuery(['products'], getProducts);
+  } = useQuery(['products'], getProducts, { staleTime: 1000 * 60 });
 
   if (isLoading) return <p>Loading...</p>;
   if (error) return <p>{error}</p>;
