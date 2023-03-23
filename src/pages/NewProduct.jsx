@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import Button from '../componets/ui/Button.jsx';
 import { uploadImage } from '../api/uploader.js';
-import { addNewProduct } from '../api/firebase.js';
-import { useMutation, useQueryClient } from '@tanstack/react-query';
 import useProducts from '../hooks/useProducts.jsx';
 
 function NewProduct() {
@@ -22,9 +20,7 @@ function NewProduct() {
           {
             onSuccess: () => {
               setSuccess('성공적으로 제품이 추가되었습니다.');
-              setTimeout(() => {
-                setSuccess(null);
-              }, 4000);
+              setTimeout(() => setSuccess(null), 4000);
             },
           }
         );
